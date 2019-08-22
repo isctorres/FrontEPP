@@ -62,9 +62,9 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Inicio </span></a></li>
-                  <li><a href="pedidos"><i class="fa fa fa-shopping-cart"></i> Pedidos </span></a></li>
-                  <li><a href="clientes"><i class="fa fa-users"></i>Clientes</a></li>
-                  <li><a href="productos"><i class="fa fa-truck"></i>Productos</a></li>
+                  <li><a href="pedidos.php"><i class="fa fa fa-shopping-cart"></i> Pedidos </span></a></li>
+                  <li><a href="clientes.php"><i class="fa fa-users"></i>Clientes</a></li>
+                  <li><a href="productos.php"><i class="fa fa-truck"></i>Productos</a></li>
                   <li><a href="areas.php"><i class="fa fa-bar-chart-o"></i> Areas</a></li>
                 </ul>
               </div>

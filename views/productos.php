@@ -62,9 +62,9 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Inicio </span></a></li>
-                  <li><a href="pedidos"><i class="fa fa fa-shopping-cart"></i> Pedidos </span></a></li>
-                  <li><a href="clientes"><i class="fa fa-users"></i>Clientes</a></li>
-                  <li><a href="productos"><i class="fa fa-truck"></i>Productos</a></li>
+                  <li><a href="pedidos.php"><i class="fa fa fa-shopping-cart"></i> Pedidos </span></a></li>
+                  <li><a href="clientes.php"><i class="fa fa-users"></i>Clientes</a></li>
+                  <li><a href="productos.php"><i class="fa fa-truck"></i>Productos</a></li>
                   <li><a href="areas.php"><i class="fa fa-bar-chart-o"></i> Areas</a></li>
                 </ul>
               </div>
@@ -237,7 +237,7 @@
                   </div>
               <div class="modal-body">
                 <div class="container-fluid">
-                  <form name="frmCliente" id="frmCliente">
+                  <form name="frmProducto" id="frmProducto">
                     <div class="row">
                       <div class="col-10">
                         <div class="form-group">
@@ -328,8 +328,8 @@
     <script src="../build/js/custom.min.js"></script>
     
     <script>
-        $("#tbClientes").load("../controllers/clientesController.php",{opc:'1'});
-        $("#btnActualizar").click(function(){ actualizarCliente(); });
+        $("#tbProductos").load("../controllers/productosController.php",{opc:'1'});
+        $("#btnActualizar").click(function(){ actualizarProducto(); });
     </script>
   </body>
 </html>

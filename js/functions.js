@@ -157,40 +157,42 @@ function verEdicion(idProducto,nomProducto,existencia,reorden,comprometidas,vige
 function verModal(){
     $("#spnTitulo").html('Insertar Producto');
     $("#myModal").modal("show");
-    $("#txtIdCliente").val("");
-    $("#txtNomCliente").val("");
-    $("#txtDirCliente").val("");
-    $("#txtEmailCliente").val("");
-    $("#txtTelCliente").val("");
+    $("#txtIdProducto").val("");
+    $("#txtNomProducto").val("");
+    $("#txtExistencia").val("");
+    $("#txtReorden").val("");
+    $("#txtComprometidas").val("");
+    $("#txtVigente").val("");
+    $("#txtImagen").val("");
     $("#btnActualizar").hide()
     $("#btnGuardar").show()
 }
 
-function insertarCliente(){
-    var pagina = $("#frmCliente").serialize();
-    var url = "../controllers/clientesController.php";
+function insertarProducto(){
+    var pagina = $("#frmProducto").serialize();
+    var url = "../controllers/productosController.php";
     $.ajax({
         type: "POST",
         url: url,
         data: pagina+"&opc=2",
         cache: false,
         success: function(data){
-            $("#tbClientes").load("../controllers/clientesController.php",{opc:'1'});
+            $("#tbProductos").load("../controllers/productosController.php",{opc:'1'});
         }
     });
     $("#myModal").modal("hide");
 }
 
-function actualizarCliente(){
-    var pagina = $("#frmCliente").serialize();
-    var url = "../controllers/clientesController.php";
+function actualizarProducto(){
+    var pagina = $("#frmProducto").serialize();
+    var url = "../controllers/productosController.php";
     $.ajax({
         type: "POST",
         url: url,
         data: pagina+"&opc=3",
         cache: true,
         success: function(data){
-            $("#tbClientes").load("../controllers/clientesController.php",{opc:'1'});
+            $("#tbProductos").load("../controllers/productosController.php",{opc:'1'});
         },
         error: function () {
             console.log("No se ha podido obtener la información");
@@ -199,17 +201,17 @@ function actualizarCliente(){
     $("#myModal").modal("hide");
 }
 
-function eliminarCliente(idCliente){
-    var r = confirm("¿Está seguro de eliminar el cliente?");
+function eliminarProducto(idProducto){
+    var r = confirm("¿Está seguro de eliminar el producto?");
     if( r ){
-        var url = "../controllers/clientesController.php";
+        var url = "../controllers/productosController.php";
         $.ajax({
             type: "POST",
             url: url,
-            data: "opc=4&idCliente="+idCliente,
+            data: "opc=4&idProducto="+idProducto,
             cache: false,
             success: function(data){
-                $("#tbClientes").load("../controllers/clientesController.php",{opc:'1'});
+                $("#tbProductos").load("../controllers/productosController.php",{opc:'1'});
             }
         });
     }

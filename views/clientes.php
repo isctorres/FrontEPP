@@ -178,7 +178,7 @@
                 <div class="col-md-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Administración de Areas <small>Catálogo</small></h2>
+                            <h2>Administración de Clientes <small>Catálogo</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                                 <li class="dropdown">
@@ -197,12 +197,15 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Nombre Area</th>
+                                        <th scope="col">Nombre Cliente</th>
+                                        <th scope="col">Dirección</th>
+                                        <th scope="col">Correo Electrónico</th>
+                                        <th scope="col">Teléfono</th>
                                         <th scope="col">Editar</th>
                                         <th scope="col">Eliminar</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbAreas">
+                                <tbody id="tbClientes">
                                 </tbody>
                             </table>
                         </div>
@@ -210,7 +213,7 @@
 
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary btn-outline" onclick="verModal()">
-                            Agregar Area
+                            Agregar Cliente
                         </button>
                     </div>
                 </div>
@@ -232,14 +235,23 @@
                   </div>
               <div class="modal-body">
                 <div class="container-fluid">
-                  <form name="frmArea" id="frmArea">
+                  <form name="frmCliente" id="frmCliente">
                     <div class="row">
                       <div class="col-10">
                         <div class="form-group">
-                          <input type="text" class="form-control" name="txtIdArea" id="txtIdArea" readonly="readonly">
+                          <input type="text" class="form-control" name="txtIdCliente" id="txtIdCliente" readonly="readonly">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" name="txtNomArea" id="txtNomArea" placeholder="Introduce el área">
+                          <input type="text" class="form-control" name="txtNomCliente" id="txtNomCliente" placeholder="Introduce el nombre del cliente">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="txtDirCliente" id="txtDirCliente" placeholder="Introduce la dirección">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="txtEmailCliente" id="txtEmailCliente" placeholder="Introduce el correo electrónico">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="txtTelCliente" id="txtTelCliente" placeholder="Introduce el número telefónico">
                         </div>
                       </div>
                     </div>
@@ -249,7 +261,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" id="btnActualizar" class="btn btn-primary">Actualizar</button>
-                <button type="button" id="btnGuardar" class="btn btn-primary" onclick="insertarArea()">Guardar</button>
+                <button type="button" id="btnGuardar" class="btn btn-primary" onclick="insertarCliente()">Guardar</button>
               </div>
             </div>
           </div>
@@ -308,8 +320,8 @@
     <script src="../build/js/custom.min.js"></script>
     
     <script>
-        $("#tbAreas").load("../controllers/areasController.php",{opc:'1'});
-        $("#btnActualizar").click(function(){ actualizarArea(); });
+        $("#tbClientes").load("../controllers/clientesController.php",{opc:'1'});
+        $("#btnActualizar").click(function(){ actualizarCliente(); });
     </script>
   </body>
 </html>

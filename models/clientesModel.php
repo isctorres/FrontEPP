@@ -1,10 +1,10 @@
 <?php
-class Areas{
+class Clientes{
 
     function __construct(){}
 
-    function getAreas(){
-        $curl = curl_init("http://localhost:8888/areas");
+    function getClientes(){
+        $curl = curl_init("http://localhost:8888/clientes");
         curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
         $res = curl_exec($curl);
@@ -13,19 +13,19 @@ class Areas{
         return $res;
     }
 
-    function getArea($idarea){
-        $curl = curl_init("http://localhost:8888/areas/".$idarea);
+    function getCliente($idcliente){
+        $curl = curl_init("http://localhost:8888/clientes/".$idcliente);
         curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
         $res = curl_exec($curl);
         curl_close($curl);
     }
 
-    function insArea($campos){
+    function insCliente($campos){
         $payload = json_encode($campos);
  
         // Prepare new cURL resource
-        $ch = curl_init('http://localhost:8888/areas');
+        $ch = curl_init('http://localhost:8888/clientes');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -41,9 +41,9 @@ class Areas{
         curl_close($ch);
     }
 
-    function updArea($idArea,$campos){
+    function updCliente($idCliente,$campos){
       
-        $url = 'http://localhost:8888/areas/'.$idArea;
+        $url = 'http://localhost:8888/clientes/'.$idCliente;
         $data_json = json_encode($campos);
 
         $ch = curl_init();
@@ -56,8 +56,8 @@ class Areas{
         curl_close($ch);
     }
 
-    function delArea($idArea){
-        $ch = curl_init('http://localhost:8888/areas/'.$idArea);
+    function delCliente($idCliente){
+        $ch = curl_init('http://localhost:8888/clientes/'.$idCliente);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
         $result = curl_exec($ch);

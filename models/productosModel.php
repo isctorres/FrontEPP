@@ -22,8 +22,8 @@ class Productos{
     }
 
     function insProducto($campos){
-        $payload = json_encode($campos);
- 
+        echo $payload = json_encode($campos);
+        
         // Prepare new cURL resource
         $ch = curl_init('http://localhost:8888/productos');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -44,7 +44,7 @@ class Productos{
     function updProducto($idProducto,$campos){
       
         $url = 'http://localhost:8888/productos/'.$idProducto;
-        $data_json = json_encode($campos);
+        echo $data_json = json_encode($campos);
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

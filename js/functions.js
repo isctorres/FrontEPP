@@ -169,13 +169,24 @@ function verModal(){
 }
 
 function insertarProducto(){
-    var pagina = $("#frmProducto").serialize();
+
+    var formData = new FormData();
+    var files = $('#txtImagen')[0].files[0];
+    formData.append('file',files);
+    formData.append('txtNomProducto',$('#txtNomProducto').val());
+    formData.append('txtExistencia',$('#txtExistencia').val());
+    formData.append('txtReorden',$('#txtReorden').val());
+    formData.append('txtVigente',$('#txtVigente').val());
+    formData.append('opc',2);
+
     var url = "../controllers/productosController.php";
     $.ajax({
         type: "POST",
         url: url,
-        data: pagina+"&opc=2",
+        data: formData,
         cache: false,
+        contentType: false,
+        processData: false,
         success: function(data){
             $("#tbProductos").load("../controllers/productosController.php",{opc:'1'});
         }

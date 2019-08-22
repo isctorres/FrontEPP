@@ -237,29 +237,29 @@
                   </div>
               <div class="modal-body">
                 <div class="container-fluid">
-                  <form name="frmProducto" id="frmProducto">
+                  <form name="frmProducto" id="frmProducto" enctype="multipart/form-data">
                     <div class="row">
                       <div class="col-10">
                         <div class="form-group">
                           <input type="text" class="form-control" name="txtIdProducto" id="txtIdProducto" readonly="readonly">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" name="txtNomProducto" id="txtNomProducto" placeholder="Introduce el nombre del cliente">
+                          <input type="text" class="form-control" name="txtNomProducto" id="txtNomProducto" placeholder="Introduce el nombre del producto">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" name="txtExistencia" id="txtExistencia" placeholder="Introduce la dirección">
+                          <input type="number" min="1" max="10000" class="form-control" name="txtExistencia" id="txtExistencia" placeholder="Introduce la existencia">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" name="txtReorden" id="txtReorden" placeholder="Introduce el correo electrónico">
+                          <input type="number" min="1" max="10000" class="form-control" name="txtReorden" id="txtReorden" placeholder="Introduce el punto de reórden">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" name="txtComprometidas" id="txtComprometidas" placeholder="Introduce el número telefónico">
+                          <input type="number" class="form-control" name="txtComprometidas" id="txtComprometidas" value="0" readonly="readonly">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="form-control" name="txtVigente" id="txtVigente" placeholder="Introduce el número telefónico">
+                          <input type="text" class="form-control" name="txtVigente" id="txtVigente" placeholder="Producto Vigente">
                         </div>
                         <div class="form-group">
-                          <input type="file" class="form-control" name="txtImagen" id="txtImagen" placeholder="Introduce el número telefónico">
+                          <input type="file" class="form-control" name="txtImagen" id="txtImagen">
                         </div>
                       </div>
                     </div>
@@ -269,7 +269,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" id="btnActualizar" class="btn btn-primary">Actualizar</button>
-                <button type="button" id="btnGuardar" class="btn btn-primary" onclick="insertarCliente()">Guardar</button>
+                <button type="button" id="btnGuardar" class="btn btn-primary" onclick="insertarProducto()">Guardar</button>
               </div>
             </div>
           </div>

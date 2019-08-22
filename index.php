@@ -28,6 +28,7 @@
 
     <!-- Custom Theme Style -->
     <link href="./build/css/custom.min.css" rel="stylesheet">
+    <script src="./js/functions.js"></script>
   </head>
 
   <body class="nav-md">
@@ -232,7 +233,7 @@
 
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>Network Activities <small>Graph title sub-title</small></h3>
+                    <h3>Listado de Pedidos <small></small></h3>
                   </div>
                   <div class="col-md-6">
                     <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -243,8 +244,29 @@
                 </div>
 
                 <div class="col-md-9 col-sm-9 col-xs-12">
-                  <div id="chart_plot_01" class="demo-placeholder"></div>
+                  <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Pedido</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Fecha Pedido</th>
+                            <th scope="col">Fecha Envío</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbPedidos">
+                    </tbody>
+                  </table>
+
+                  <div class="input-group-append">
+                      <button type="button" class="btn btn-primary btn-outline" onclick="verModal()">
+                          Agregar Pedido
+                      </button>
+                  </div>
+
                 </div>
+
                 <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
                   <div class="x_title">
                     <h2>Top Campaign Performance</h2>
@@ -311,11 +333,75 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" id="content-modal"></div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span id="spnTitulo"></span></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <form name="frmProducto" id="frmProducto">
+              
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="sltIdCliente">Selecciona el Cliente</label>
+                      <select class="form-control" id="sltIdCliente">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <fieldset>
+                    <legend><h5>Selecciona el producto</h5></legend>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <select class="form-control" id="sltIdCliente">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <input type="number" class="form-control" name="txtCantidad" id="txtCantidad" placeholder="Cantidad">
+                    </div>
+
+                    <div class="col-sm-2">
+                      <button type="button" id="btnAgregar" class="btn btn-primary">Agregar Producto</button>
+                    </div>
+                  </fieldset>
+                </div>
+
+
+
+
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="btnActualizar" class="btn btn-primary">Actualizar</button>
+            <button type="button" id="btnGuardar" class="btn btn-primary" onclick="insertarProducto()">Guardar</button>
+          </div>
+        </div>
       </div>
     </div>
+
+
+
 
     <!-- jQuery -->
     <script src="./vendors/jquery/dist/jquery.min.js"></script>
@@ -357,6 +443,10 @@
 
     <!-- Custom Theme Scripts -->
     <script src="./build/js/custom.min.js"></script>
-	
+    <script>
+        $("#tbProductos").load("./controllers/pedidosController.php",{opc:'1'});
+        $("#btnActualizar").click(function(){ actualizarPedido(); });
+    </script>
+
   </body>
 </html>
